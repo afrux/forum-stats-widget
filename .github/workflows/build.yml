@@ -3,7 +3,7 @@ name: JavaScript
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -29,4 +29,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           build_script: build
-          package_manager: npm
+          package_manager: yarn
