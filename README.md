@@ -17,7 +17,7 @@ composer require afrux/forum-stats-widget:"*"
 ## Updating
 
 ```sh
-composer update afrux/forum-stats-widget:"*"
+composer update afrux/forum-stats-widget:"*" --with-dependencies
 php flarum migrate
 php flarum cache:clear
 ```
