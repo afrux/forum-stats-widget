@@ -1,4 +1,4 @@
-import * as Mithril from "mithril";
+import * as Mithril from 'mithril';
 import Tooltip from 'flarum/common/components/Tooltip';
 import icon from 'flarum/common/helpers/icon';
 import Widget from 'flarum/extensions/afrux-forum-widgets-core/common/components/Widget';
