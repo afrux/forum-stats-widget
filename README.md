@@ -8,8 +8,6 @@ A [Flarum](http://flarum.org) extension. FForum Statistics Widget.
 
 This will also install [Forum Widgets Core](https://github.com/afrux/forum-widgets-core) as it relies on it.
 
-## Installation
-
 Install with composer:
 
 ```sh
