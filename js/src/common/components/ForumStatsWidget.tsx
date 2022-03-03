@@ -2,7 +2,7 @@ import app from 'flarum/common/app';
 import Tooltip from 'flarum/common/components/Tooltip';
 import icon from 'flarum/common/helpers/icon';
 import Widget from 'flarum/extensions/afrux-forum-widgets-core/common/components/Widget';
-import extractText from "flarum/common/utils/extractText";
+import extractText from 'flarum/common/utils/extractText';
 
 export default class ForumStatsWidgetWidget extends Widget {
   className(): string {
