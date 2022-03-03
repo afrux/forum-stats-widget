@@ -1,7 +1,8 @@
-import * as Mithril from 'mithril';
+import app from 'flarum/common/app';
 import Tooltip from 'flarum/common/components/Tooltip';
 import icon from 'flarum/common/helpers/icon';
 import Widget from 'flarum/extensions/afrux-forum-widgets-core/common/components/Widget';
+import extractText from "flarum/common/utils/extractText";
 
 export default class ForumStatsWidgetWidget extends Widget {
   className(): string {
@@ -13,10 +14,10 @@ export default class ForumStatsWidgetWidget extends Widget {
   }
 
   title(): string {
-    return app.translator.trans('afrux-forum-stats-widget.forum.widget.title');
+    return extractText(app.translator.trans('afrux-forum-stats-widget.forum.widget.title'));
   }
 
-  content(): Mithril.Children {
+  content() {
     const stats = app.forum.attribute('afrux-forum-stats-widget.stats');
 
     return (

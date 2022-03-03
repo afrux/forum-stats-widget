@@ -8,7 +8,7 @@ export default function (app: Application) {
     .add({
       key: 'forumStats',
       component: ForumStatsWidget,
-      isDisabled: false,
+      isDisabled: () => !app.forum.attribute('afrux-forum-stats-widget.stats'),
       isUnique: true,
       placement: 'end',
       position: 2,

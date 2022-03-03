@@ -11,18 +11,18 @@
 
 namespace Afrux\ForumStats;
 
+use Afrux\ForumWidgets\SafeCacheRepositoryAdapter;
 use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Post\CommentPost;
 use Flarum\User\User;
-use Illuminate\Contracts\Cache\Repository;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use function Afrux\ForumWidgets\Helper\pretty_number_format;
 
 class AddStatsToApi
 {
     /**
-     * @var Repository
+     * @var SafeCacheRepositoryAdapter
      */
     private $cache;
 
@@ -31,7 +31,7 @@ class AddStatsToApi
      */
     private $translator;
 
-    public function __construct(Repository $cache, TranslatorInterface $translator)
+    public function __construct(SafeCacheRepositoryAdapter $cache, TranslatorInterface $translator)
     {
         $this->cache = $cache;
         $this->translator = $translator;
@@ -47,7 +47,11 @@ class AddStatsToApi
                 'user_count' => User::count(),
                 'comment_post_count' => CommentPost::count(),
             ];
-        });
+        }) ?: [];
+
+        if (empty($stats)) {
+            return ['afrux-forum-stats-widget.stats' => null];
+        }
 
         return [
             'afrux-forum-stats-widget.stats' => [
