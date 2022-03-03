@@ -15,14 +15,14 @@ use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Post\CommentPost;
 use Flarum\User\User;
-use Illuminate\Contracts\Cache\Factory;
+use Illuminate\Contracts\Cache\Repository;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use function Afrux\ForumWidgets\Helper\pretty_number_format;
 
 class AddStatsToApi
 {
     /**
-     * @var Factory
+     * @var Repository
      */
     private $cache;
 
@@ -31,7 +31,7 @@ class AddStatsToApi
      */
     private $translator;
 
-    public function __construct(Factory $cache, TranslatorInterface $translator)
+    public function __construct(Repository $cache, TranslatorInterface $translator)
     {
         $this->cache = $cache;
         $this->translator = $translator;
